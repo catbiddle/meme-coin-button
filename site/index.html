@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Meme Coin! One-of-a-kind handmade buttons</title>
+<meta name="description" content="One-of-a-kind buttons made by hand from old magazines by a 5th grader and his mom. No AI. No reprints.">
+<link rel="icon" href="images/logo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Special+Elite&display=swap">
+<style>
+:root { --ink: #111111; --paper: #F2EDE4; --accent: #FF2E88; --mute: #CFCAC0; }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--paper); color: var(--ink); font-family: 'Special Elite', 'Courier New', monospace; font-size: 16px; line-height: 1.5; }
+img { max-width: 100%; }
+p { margin: 0; }
+h1, h2, h3 { margin: 0; }
+.display { font-family: 'Anton', Impact, sans-serif; font-weight: 400; text-transform: uppercase; line-height: 1; }
+.wrap { max-width: 1200px; margin: 0 auto; }
+.dark { background: var(--ink); color: var(--paper); }
+button { cursor: pointer; font-family: inherit; }
+a:focus-visible, button:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+
+header { padding: 16px 24px; }
+header .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; }
+.logo { display: block; background: var(--paper); padding: 4px; transform: rotate(-3deg); box-shadow: 4px 4px 0 var(--accent); }
+.logo img { display: block; height: 84px; width: auto; }
+nav { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+nav a { color: var(--paper); padding: 12px 10px; text-decoration: none; text-transform: uppercase; font-size: 14px; }
+nav a.stash { background: var(--accent); color: var(--ink); padding: 12px 16px; font-weight: bold; transform: rotate(2deg); }
+
+.hero { padding: 56px 24px 72px; }
+.hero .wrap { display: flex; flex-wrap: wrap; align-items: center; gap: 48px; }
+.hero-text { flex: 999 1 480px; min-width: 0; display: flex; flex-direction: column; gap: 24px; align-items: flex-start; }
+.tag { background: var(--paper); color: var(--ink); padding: 4px 10px; font-size: 14px; text-transform: uppercase; transform: rotate(-2deg); }
+.hero h1 { font-size: clamp(48px, 9vw, 104px); line-height: 0.95; }
+.hero h1 span { background: var(--accent); color: var(--ink); padding: 0 12px; display: inline-block; transform: rotate(-1.5deg); }
+.hero p { max-width: 520px; font-size: 18px; }
+.cta { background: var(--paper); color: var(--ink); padding: 14px 24px; text-decoration: none; text-transform: uppercase; font-weight: bold; border: 3px solid var(--paper); box-shadow: 6px 6px 0 var(--accent); }
+.hero-pics { flex: 1 1 320px; min-width: 0; display: flex; justify-content: center; }
+.hero-pics div { position: relative; width: 320px; height: 320px; max-width: 100%; }
+.hero-pics img { position: absolute; border-radius: 50%; object-fit: cover; }
+.hero-pics img.a { left: 0; top: 10px; width: 210px; height: 210px; border: 5px solid var(--paper); transform: rotate(-9deg); }
+.hero-pics img.b { right: 0; bottom: 0; width: 170px; height: 170px; border: 5px solid var(--accent); transform: rotate(7deg); }
+
+section { padding: 64px 24px; }
+section h2 { font-size: clamp(40px, 7vw, 56px); }
+.stack { display: flex; flex-direction: column; gap: 28px; }
+.shop-head { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px; }
+.shop-head > div:first-child { display: flex; flex-direction: column; gap: 8px; }
+.filters { display: flex; flex-wrap: wrap; gap: 8px; }
+.filters button { min-height: 44px; padding: 8px 16px; font-size: 14px; text-transform: uppercase; border: 2px solid var(--ink); background: #FFFFFF; color: var(--ink); }
+.filters button[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+.shop-body { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 32px; }
+.grid { flex: 999 1 560px; min-width: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px; }
+.card { background: #FFFFFF; border: 2px solid var(--ink); padding: 20px 16px 16px; display: flex; flex-direction: column; align-items: center; gap: 14px; box-shadow: 5px 5px 0 var(--ink); }
+.pics { height: 160px; display: flex; align-items: center; justify-content: center; }
+.pics img { flex: none; border-radius: 50%; object-fit: cover; border: 2px solid var(--ink); background: var(--paper); }
+.card-text { display: flex; flex-direction: column; align-items: center; gap: 6px; text-align: center; flex-grow: 1; }
+.kind { font-size: 12px; text-transform: uppercase; background: var(--ink); color: var(--paper); padding: 2px 8px; }
+.card h3 { font-size: 22px; line-height: 1.15; }
+.price { font-size: 18px; font-weight: bold; }
+.card button, .gone { width: 100%; min-height: 44px; font-size: 14px; text-transform: uppercase; font-weight: bold; border: 2px solid var(--ink); }
+.card button.add { background: var(--ink); color: var(--paper); }
+.card button.in { background: var(--accent); color: var(--ink); }
+.gone { display: flex; align-items: center; justify-content: center; border-style: dashed; transform: rotate(-2deg); }
+
+.cart { flex: 1 1 280px; min-width: 0; padding: 24px; display: flex; flex-direction: column; gap: 16px; }
+.cart h2 { font-size: 32px; }
+.line { display: flex; align-items: center; justify-content: space-between; gap: 12px; border-bottom: 1px dashed var(--paper); padding-bottom: 12px; }
+.line .t { text-transform: uppercase; }
+.line .k, .small { font-size: 13px; color: var(--mute); }
+.line .r { display: flex; align-items: center; gap: 8px; }
+.line button { width: 44px; height: 44px; background: transparent; color: var(--paper); border: 1px solid var(--paper); display: flex; align-items: center; justify-content: center; }
+.sums { display: flex; flex-direction: column; gap: 6px; }
+.row { display: flex; justify-content: space-between; gap: 12px; }
+.total { font-size: 20px; font-weight: bold; text-transform: uppercase; }
+.checkout { display: block; width: 100%; text-align: center; min-height: 48px; padding: 12px; font-size: 16px; text-transform: uppercase; font-weight: bold; background: var(--accent); color: var(--ink); border: 2px solid var(--paper); text-decoration: none; }
+[hidden] { display: none !important; }
+
+.bundles { border: 3px solid var(--ink); background: var(--accent); padding: 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; transform: rotate(-0.5deg); }
+.bundles h3 { font-size: 32px; }
+.bundles .p { background: var(--ink); color: var(--paper); padding: 10px 16px; text-transform: uppercase; }
+
+.steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; }
+.step { border: 2px solid var(--paper); padding: 24px; display: flex; flex-direction: column; gap: 10px; }
+.step .n { font-family: 'Anton', Impact, sans-serif; font-size: 48px; line-height: 1; color: var(--accent); }
+.step h3 { font-size: 20px; text-transform: uppercase; }
+.poetry { display: flex; flex-wrap: wrap; gap: 24px; align-items: center; border-top: 1px dashed var(--paper); padding-top: 32px; }
+.poetry > div { flex: 1 1 280px; min-width: 0; }
+.poetry .txt { display: flex; flex-direction: column; gap: 8px; }
+.poetry h3 { font-size: 32px; }
+.poetry .pic { display: flex; justify-content: center; }
+.poetry img { width: 220px; height: 220px; border-radius: 50%; object-fit: cover; border: 5px solid var(--accent); transform: rotate(4deg); }
+
+.about .wrap { display: flex; flex-wrap: wrap; gap: 40px; align-items: center; }
+.snap { flex: 1 1 300px; min-width: 0; background: #FFFFFF; border: 3px solid var(--ink); padding: 10px; box-shadow: 6px 6px 0 var(--accent); transform: rotate(-1.5deg); }
+.snap img { display: block; width: 100%; height: auto; }
+.about-text { flex: 2 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 16px; }
+.about-text p { font-size: 18px; }
+.find { align-self: flex-start; background: var(--ink); color: var(--paper); padding: 10px 16px; text-transform: uppercase; transform: rotate(1deg); }
+
+.policy { padding-top: 0; }
+.cards2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; }
+.fine { background: #FFFFFF; border: 2px solid var(--ink); padding: 24px; display: flex; flex-direction: column; gap: 10px; box-shadow: 5px 5px 0 var(--ink); }
+.fine h3 { font-size: 20px; text-transform: uppercase; }
+
+footer { padding: 32px 24px; }
+footer .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; font-size: 14px; }
+footer img { display: block; height: 64px; width: auto; transform: rotate(2deg); }
+footer a { color: var(--paper); display: inline-block; padding: 12px 0; }
+</style>
+</head>
+<body id="top">
+
+<header class="dark">
+<div class="wrap">
+<a class="logo" href="#top" aria-label="Meme Coin home"><img src="images/logo.jpg" alt="Meme Coin! hand-stamped logo"></a>
+<nav aria-label="Main">
+<a href="#shop">Shop</a>
+<a href="#made">How we make them</a>
+<a href="#about">Who we are</a>
+<a class="stash" href="#cart">Stash (<span id="count">0</span>)</a>
+</nav>
+</div>
+</header>
+
+<main>
+<section class="hero dark">
+<div class="wrap">
+<div class="hero-text">
+<div class="tag">Handmade. No AI. No reprints.</div>
+<h1 class="display">One button.<br>One of a kind.<br><span>Then it's gone.</span></h1>
+<p>Magazine photos cut out by hand, paired with a phrase that talks back, and pressed into a one-inch button. Every single one exists exactly once.</p>
+<a class="cta" href="#shop">See what's left</a>
+</div>
+<div class="hero-pics"><div>
+<img class="a" src="images/forgettable.jpg" alt="Button: a comic-book man's face covered by the words Forgettable white man">
+<img class="b" src="images/villain.jpg" alt="Button: a pink felt bunny on a blue couch with the words Villain era">
+</div></div>
+</div>
+</section>
+
+<section id="shop">
+<div class="wrap stack">
+<div class="shop-head">
+<div>
+<h2 class="display">The buttons</h2>
+<p>When one sells, it's gone for good. We don't make copies.</p>
+</div>
+<div class="filters" role="group" aria-label="Filter buttons" id="filters"></div>
+</div>
+
+<div id="thanks" role="status" hidden style="border: 3px solid #111111; background: var(--accent); padding: 16px 20px; font-weight: bold">Thank you! Your order is in. We'll get your buttons in the mail soon.</div>
+<div class="shop-body">
+<div class="grid" id="grid"></div>
+
+<aside class="cart dark" id="cart" aria-label="Your stash">
+<h2 class="display">Your stash</h2>
+<p id="empty">Nothing here yet. Pick a button before somebody else does.</p>
+<div id="lines" class="stack" style="gap: 12px"></div>
+<div id="summary" class="stack" style="gap: 16px" hidden>
+<div class="sums">
+<div class="row"><div>Buttons</div><div id="subtotal"></div></div>
+<div class="row"><div>Shipping (flat, per order)</div><div id="shipping"></div></div>
+</div>
+<div class="row total"><div>Total</div><div id="total"></div></div>
+<div class="small">Ships in a stamped envelope. No tracking. All sales final.</div>
+<button class="checkout" id="pay" type="button">Check out</button>
+<p class="small" id="paymsg" role="alert" hidden></p>
+<div class="small">Secure payment by Square. Trouble paying? <a id="emailorder" href="#" style="color: inherit">Email your order</a> instead.</div>
+</div>
+</aside>
+</div>
+
+<div class="bundles">
+<div>
+<h3 class="display">Doubles and triples</h3>
+<p>Themed bundles of two or three buttons that belong together.</p>
+</div>
+<div class="p">Double $6 / Triple $9</div>
+</div>
+</div>
+</section>
+
+<section id="made" class="dark">
+<div class="wrap stack" style="gap: 32px">
+<h2 class="display">How we make them</h2>
+<div class="steps">
+<div class="step"><div class="n">01</div><h3>Dig</h3><p>We go through old magazines page by page looking for a picture nobody else would pick.</p></div>
+<div class="step"><div class="n">02</div><h3>Cut and paste</h3><p>Scissors and glue. The picture gets a phrase, or a page of text gets blacked out until a poem is left.</p></div>
+<div class="step"><div class="n">03</div><h3>Press</h3><p>One pull of the button press and it's done. The original is the button, so there is never a second one.</p></div>
+</div>
+<div class="poetry">
+<div class="txt">
+<h3 class="display">Blackout poetry buttons</h3>
+<p>Found poems made from magazine text. We cross out everything except the words that were hiding in there.</p>
+</div>
+<div class="pic"><img src="images/books.jpg" alt="Button: a page of text blacked out in stripes, leaving the words books are religion"></div>
+</div>
+</div>
+</section>
+
+<section id="about" class="about">
+<div class="wrap">
+<div class="snap"><img src="images/worktable.jpg" alt="A kid at a wooden table cutting pictures out of magazines, with glue sticks, scissors and a button press in front of him"></div>
+<div class="about-text">
+<h2 class="display">Who we are</h2>
+<p>Meme Coin is a button making business started by a 5th grader and his mom who love to make things by hand. In a world increasingly inundated with AI art, we enjoy spending our time poring over old magazines, books we find at garage sales and Goodwill, and discarded paper products to find the perfect, one-of-a-kind images for our buttons.</p>
+<p>Each button is crafted with care, from finding the right image, to picking the right accompanying phrase, to hand pressing the button itself. Our commitment is to slow down and make one-of-a-kind wearable art that is uniquely yours.</p>
+<div class="find">Find us in person: info coming soon</div>
+</div>
+</div>
+</section>
+
+<section id="policy" class="policy">
+<div class="wrap stack" style="gap: 24px">
+<h2 class="display">The fine print</h2>
+<div class="cards2">
+<div class="fine">
+<h3>Shipping</h3>
+<p>$1.50 flat per order, no matter how many buttons. We mail them in a stamped envelope, backed with recycled cardboard. There is no tracking.</p>
+<p>Buying at a craft fair or picking up locally? No shipping charge.</p>
+</div>
+<div class="fine">
+<h3>Returns</h3>
+<p>All sales are final. Every button is one of a kind, so we can't swap it for another copy.</p>
+<p>If yours shows up damaged or the pin doesn't work, email us a photo within 14 days. We'll refund you or you can pick a different button. Keep the broken one.</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+
+<footer class="dark">
+<div class="wrap">
+<img src="images/logo.jpg" alt="Meme Coin! hand-stamped logo">
+<div>Questions: <a href="mailto:catbiddle@gmail.com">catbiddle@gmail.com</a></div>
+<div>Made by humans with scissors.</div>
+</div>
+</footer>
+
+<script>
+/* The list of buttons lives in buttons.json (same folder).
+   To mark one sold, open buttons.json and change "sold":false to "sold":true. */
+var EMAIL = 'catbiddle@gmail.com';
+var SHIPPING = 1.5;
+var BUTTONS = [];
+
+function startShop() {
+  var KIND = { single: 'Single', double: 'Double bundle', triple: 'Triple bundle', poetry: 'Blackout poetry' };
+  var SIZE = { single: 150, double: 92, triple: 70, poetry: 150 };
+  var OVERLAP = { single: 0, double: -22, triple: -24, poetry: 0 };
+  var TILT = [-4, 3, -5, 4, -2, 5, -6, 2, -3];
+  var FILTERS = [['all', 'All'], ['single', 'Singles'], ['bundle', 'Bundles'], ['poetry', 'Blackout poetry']];
+  var filter = 'all';
+  var cart = [];
+  try { cart = JSON.parse(localStorage.getItem('memecoin-stash') || '[]'); } catch (e) { cart = []; }
+  cart = cart.filter(function (id) { return BUTTONS.some(function (b) { return b.id === id && !b.sold; }); });
+
+  function $(id) { return document.getElementById(id); }
+  function money(n) { return '$' + n.toFixed(2); }
+  function el(tag, cls, text) {
+    var e = document.createElement(tag);
+    if (cls) { e.className = cls; }
+    if (text != null) { e.textContent = text; }
+    return e;
+  }
+  function save() { try { localStorage.setItem('memecoin-stash', JSON.stringify(cart)); } catch (e) {} }
+  function inCart(id) { return cart.indexOf(id) !== -1; }
+  function toggle(id) {
+    if (inCart(id)) { cart = cart.filter(function (c) { return c !== id; }); } else { cart.push(id); }
+    save(); render();
+  }
+  function matches(b) {
+    if (filter === 'all') { return true; }
+    if (filter === 'bundle') { return b.kind === 'double' || b.kind === 'triple'; }
+    return b.kind === filter;
+  }
+
+  function renderFilters() {
+    var box = $('filters'); box.textContent = '';
+    FILTERS.forEach(function (f) {
+      var b = el('button', '', f[1]);
+      b.type = 'button';
+      b.setAttribute('aria-pressed', f[0] === filter ? 'true' : 'false');
+      b.addEventListener('click', function () { filter = f[0]; render(); });
+      box.appendChild(b);
+    });
+  }
+
+  function renderGrid() {
+    var grid = $('grid'); grid.textContent = '';
+    BUTTONS.filter(matches).forEach(function (b) {
+      var card = el('article', 'card');
+      var pics = el('div', 'pics');
+      b.pics.forEach(function (p, i) {
+        var img = el('img');
+        img.src = 'images/' + p[0];
+        img.alt = 'Button: ' + p[1];
+        img.loading = 'lazy';
+        img.width = SIZE[b.kind]; img.height = SIZE[b.kind];
+        img.style.width = SIZE[b.kind] + 'px'; img.style.height = SIZE[b.kind] + 'px';
+        if (i > 0) { img.style.marginLeft = OVERLAP[b.kind] + 'px'; }
+        img.style.transform = 'rotate(' + TILT[(b.id + i * 4) % TILT.length] + 'deg)';
+        pics.appendChild(img);
+      });
+      card.appendChild(pics);
+      var text = el('div', 'card-text');
+      text.appendChild(el('div', 'kind', KIND[b.kind]));
+      text.appendChild(el('h3', 'display', b.title));
+      text.appendChild(el('div', 'price', money(b.price)));
+      card.appendChild(text);
+      if (b.sold) {
+        card.appendChild(el('div', 'gone', 'Gone forever'));
+      } else {
+        var btn = el('button', inCart(b.id) ? 'in' : 'add', inCart(b.id) ? 'In your stash — put back' : 'Grab it');
+        btn.type = 'button';
+        btn.addEventListener('click', function () { toggle(b.id); });
+        card.appendChild(btn);
+      }
+      grid.appendChild(card);
+    });
+  }
+
+  function renderCart() {
+    var picked = BUTTONS.filter(function (b) { return inCart(b.id); });
+    var lines = $('lines'); lines.textContent = '';
+    picked.forEach(function (b) {
+      var line = el('div', 'line');
+      var left = el('div');
+      left.appendChild(el('div', 't', b.title));
+      left.appendChild(el('div', 'k', KIND[b.kind]));
+      var right = el('div', 'r');
+      right.appendChild(el('div', '', money(b.price)));
+      var x = el('button');
+      x.type = 'button';
+      x.setAttribute('aria-label', 'Remove ' + b.title);
+      x.innerHTML = '<svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3l10 10M13 3L3 13"></path></svg>';
+      x.addEventListener('click', function () { toggle(b.id); });
+      right.appendChild(x);
+      line.appendChild(left); line.appendChild(right);
+      lines.appendChild(line);
+    });
+    var sub = picked.reduce(function (s, b) { return s + b.price; }, 0);
+    $('count').textContent = picked.length;
+    $('empty').hidden = picked.length > 0;
+    $('summary').hidden = picked.length === 0;
+    $('subtotal').textContent = money(sub);
+    $('shipping').textContent = money(SHIPPING);
+    $('total').textContent = money(sub + SHIPPING);
+    var body = ['Hi Meme Coin,', '', "I'd like to buy:"];
+    picked.forEach(function (b) { body.push('- ' + b.title + ' (' + KIND[b.kind] + ') ' + money(b.price)); });
+    body.push('', 'Buttons: ' + money(sub), 'Shipping: ' + money(SHIPPING), 'Total: ' + money(sub + SHIPPING), '', 'My name:', 'My mailing address:', '');
+    $('emailorder').href = 'mailto:' + EMAIL + '?subject=' + encodeURIComponent('Meme Coin order') + '&body=' + encodeURIComponent(body.join('\n'));
+  }
+
+  function render() { renderFilters(); renderGrid(); renderCart(); }
+  $('pay').addEventListener('click', function () {
+    var pay = $('pay'), msg = $('paymsg');
+    pay.disabled = true; pay.textContent = 'One moment\u2026'; msg.hidden = true;
+    fetch('/.netlify/functions/checkout', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ ids: cart }) })
+      .then(function (r) { return r.json().then(function (d) { return { ok: r.ok, d: d }; }); })
+      .then(function (res) {
+        if (res.ok && res.d.url) { window.location.href = res.d.url; return; }
+        throw new Error(res.d && res.d.error ? res.d.error : 'Checkout is not working right now.');
+      })
+      .catch(function (e) {
+        pay.disabled = false; pay.textContent = 'Check out';
+        msg.textContent = (e && e.message ? e.message : 'Checkout is not working right now.') + ' You can email your order instead.';
+        msg.hidden = false;
+      });
+  });
+  if (/[?&]thanks=1/.test(window.location.search)) {
+    cart = []; save();
+    $('thanks').hidden = false;
+    try { history.replaceState(null, '', window.location.pathname); } catch (e) {}
+  }
+  render();
+}
+fetch('buttons.json', { cache: 'no-store' })
+  .then(function (r) { return r.json(); })
+  .then(function (list) { BUTTONS = list; startShop(); })
+  .catch(function () { document.getElementById('grid').textContent = 'The buttons could not be loaded. Please refresh the page.'; });
+</script>
+</body>
+</html>
