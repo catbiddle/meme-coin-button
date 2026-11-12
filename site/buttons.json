@@ -8,7 +8,7 @@
   {"id":7,"title":"Beheaded / Diva / Survived","kind":"triple","price":9,"sold":false,"pics":[["beheaded.jpg","singers on a purple-lit stage with the word Beheaded"],["diva.jpg","a singer on a purple-lit stage with the word Diva"],["survived.jpg","a singer on a purple-lit stage with the word Survived"]]},
   {"id":8,"title":"Make stuff (one)","kind":"single","price":3,"sold":false,"pics":[["make-stuff-1.jpg","a wall of small framed pictures with the words Make stuff"]]},
   {"id":9,"title":"Make stuff (two)","kind":"single","price":3,"sold":false,"pics":[["make-stuff-2.jpg","a wall of small framed pictures with the words Make stuff"]]},
-  {"id":10,"title":"Books are religion","kind":"poetry","price":3,"sold":false,"pics":[["books.jpg","a page of text blacked out in stripes, leaving the words books are religion"]]},
+  {"id":10,"title":"Books are religion","kind":"poetry","price":3,"sold":true,"pics":[["books.jpg","a page of text blacked out in stripes, leaving the words books are religion"]]},
   {"id":11,"title":"A bit indomitable","kind":"poetry","price":3,"sold":false,"pics":[["indomitable.jpg","a page of text blacked out in stripes, leaving the words a bit indomitable"]]},
   {"id":12,"title":"Downeast weirdo","kind":"single","price":3,"sold":false,"pics":[["downeast.jpg","a fishing boat at a dock with the words Downeast Weirdo"]]},
   {"id":13,"title":"Awkward white lady","kind":"single","price":3,"sold":false,"pics":[["awkward.jpg","a woman with her arms raised in a crowd, with the words Awkward white lady"]]},
