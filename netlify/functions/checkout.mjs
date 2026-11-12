@@ -9,6 +9,8 @@
 //   SQUARE_LOCATION_ID   your Square location ID
 // Optional: SQUARE_ENV = sandbox   to test with Square's fake-money sandbox.
 
+import { getStore } from '@netlify/blobs';
+
 const SHIPPING_CENTS = 150;
 // Pricing: 1 button for $4, or $3 each when the order has 2 or more buttons
 // (2 for $6, 3 for $9, and so on). A double card counts as 2 buttons, a triple as 3.
@@ -51,11 +53,20 @@ export default async (req) => {
     return json(500, { error: 'The button list could not be loaded.' });
   }
 
+  // Buttons that sold through Square since buttons.json was last edited.
+  let soldIds = [];
+  try {
+    const { blobs } = await getStore({ name: 'sold', consistency: 'strong' }).list();
+    soldIds = blobs.map((x) => Number(x.key));
+  } catch (e) {
+    console.error('Could not read the sold list', e);
+  }
+
   const picked = [];
   for (const id of ids) {
     const b = buttons.find((x) => x.id === id);
     if (!b) return json(400, { error: 'One of those buttons is no longer listed. Please refresh the page.' });
-    if (b.sold) return json(409, { error: `Sorry, "${b.title}" has already sold. Please put it back and try again.` });
+    if (b.sold || soldIds.includes(b.id)) return json(409, { error: `Sorry, "${b.title}" has already sold. Please put it back and try again.` });
     picked.push(b);
   }
 
@@ -98,6 +109,15 @@ export default async (req) => {
   } catch (e) {
     console.error('Square request failed', e);
     return json(502, { error: 'Square could not be reached.' });
+  }
+
+  // Remember which buttons are in this Square order, so square-webhook.mjs can
+  // mark them sold once the payment goes through.
+  try {
+    await getStore({ name: 'orders', consistency: 'strong' })
+      .setJSON(sq.payment_link.order_id, { ids: picked.map((b) => b.id), at: new Date().toISOString() });
+  } catch (e) {
+    console.error('Could not save the order for auto-sold', e);
   }
 
   return json(200, { url: sq.payment_link.url });

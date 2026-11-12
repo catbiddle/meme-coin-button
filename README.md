@@ -37,3 +37,19 @@ Square gives every developer application a sandbox. Use the **Sandbox** access t
 - **Shipping price:** it is set in two places that must match: `SHIPPING` in `site/index.html` and `SHIPPING_CENTS` in `netlify/functions/checkout.mjs`.
 
 Square does not know which buttons are one of a kind, so two people could pay for the same button before you mark it sold. If that happens, refund the second order from the Square dashboard.
+
+## Buttons mark themselves sold
+
+When someone pays through Square, the button turns to "Gone forever" on its own:
+
+1. `checkout.mjs` saves which buttons are in each Square order.
+2. Square calls `netlify/functions/square-webhook.mjs` when the payment completes, and that marks those buttons sold in Netlify's storage (Netlify Blobs).
+3. The shop page asks `netlify/functions/sold.mjs` for that list every time it loads, and sold buttons move to the bottom of the page.
+
+Setup: a webhook subscription in the Square Developer Console for the `payment.updated` event, pointing at `https://memecoinbutton.com/.netlify/functions/square-webhook`, and its signature key saved in Netlify as `SQUARE_WEBHOOK_SIGNATURE_KEY`.
+
+Things to know:
+
+- Sales made any other way (in person, by email) still need `"sold":true` in `buttons.json`.
+- The automatic list is keyed by each button's `id`. To put an automatically sold button back up for sale (after a refund, say), give it a new unused `id` in `buttons.json`.
+- If the automatic part ever stops working, the shop still runs from `buttons.json` exactly as before.
