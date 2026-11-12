@@ -62,6 +62,8 @@ section h2 { font-size: clamp(40px, 7vw, 56px); }
 .kind { font-size: 12px; text-transform: uppercase; background: var(--ink); color: var(--paper); padding: 2px 8px; }
 .card h3 { font-size: 22px; line-height: 1.15; }
 .price { font-size: 18px; font-weight: bold; }
+.price small { display: block; font-size: 12px; font-weight: normal; }
+.deal { display: inline-block; background: var(--accent); color: var(--ink); font-weight: bold; text-transform: uppercase; padding: 6px 12px; transform: rotate(-1deg); }
 .card button, .gone { width: 100%; min-height: 44px; font-size: 14px; text-transform: uppercase; font-weight: bold; border: 2px solid var(--ink); }
 .card button.add { background: var(--ink); color: var(--paper); }
 .card button.in { background: var(--accent); color: var(--ink); }
@@ -149,6 +151,7 @@ footer a { color: var(--paper); display: inline-block; padding: 12px 0; }
 <div>
 <h2 class="display">The buttons</h2>
 <p>When one sells, it's gone for good. We don't make copies.</p>
+<p class="deal">1 for $4 &middot; 2 for $6 &middot; 3 for $9 &middot; mix and match</p>
 </div>
 <div class="filters" role="group" aria-label="Filter buttons" id="filters"></div>
 </div>
@@ -167,6 +170,7 @@ footer a { color: var(--paper); display: inline-block; padding: 12px 0; }
 <div class="row"><div>Shipping (flat, per order)</div><div id="shipping"></div></div>
 </div>
 <div class="row total"><div>Total</div><div id="total"></div></div>
+<div class="small" id="nudge" hidden>Add a second button and they're $3 each: 2 for $6, 3 for $9.</div>
 <div class="small">Ships in a stamped envelope. No tracking. All sales final.</div>
 <button class="checkout" id="pay" type="button">Check out</button>
 <p class="small" id="paymsg" role="alert" hidden></p>
@@ -248,6 +252,8 @@ footer a { color: var(--paper); display: inline-block; padding: 12px 0; }
    To mark one sold, open buttons.json and change "sold":false to "sold":true. */
 var EMAIL = 'orders@memecoinbutton.com';
 var SHIPPING = 1.5;
+var EACH = 3;      /* price per button when an order has 2 or more buttons */
+var SOLO = 4;      /* price when an order is just one button */
 var BUTTONS = [];
 
 function startShop() {
@@ -262,6 +268,8 @@ function startShop() {
   cart = cart.filter(function (id) { return BUTTONS.some(function (b) { return b.id === id && !b.sold; }); });
 
   function $(id) { return document.getElementById(id); }
+  /* A button costs SOLO if it is the only button in the order, otherwise EACH. Bundles count every button on the card. */
+  function cost(b, n) { return n === 1 ? SOLO : EACH * b.pics.length; }
   function money(n) { return '$' + n.toFixed(2); }
   function el(tag, cls, text) {
     var e = document.createElement(tag);
@@ -312,7 +320,9 @@ function startShop() {
       var text = el('div', 'card-text');
       text.appendChild(el('div', 'kind', KIND[b.kind]));
       text.appendChild(el('h3', 'display', b.title));
-      text.appendChild(el('div', 'price', money(b.price)));
+      var price = el('div', 'price', money(cost(b, b.pics.length)));
+      if (b.pics.length === 1) { price.appendChild(el('small', '', '$' + EACH + ' each when you buy 2 or more')); }
+      text.appendChild(price);
       card.appendChild(text);
       if (b.sold) {
         card.appendChild(el('div', 'gone', 'Gone forever'));
@@ -328,6 +338,7 @@ function startShop() {
 
   function renderCart() {
     var picked = BUTTONS.filter(function (b) { return inCart(b.id); });
+    var n = picked.reduce(function (s, b) { return s + b.pics.length; }, 0);
     var lines = $('lines'); lines.textContent = '';
     picked.forEach(function (b) {
       var line = el('div', 'line');
@@ -335,7 +346,7 @@ function startShop() {
       left.appendChild(el('div', 't', b.title));
       left.appendChild(el('div', 'k', KIND[b.kind]));
       var right = el('div', 'r');
-      right.appendChild(el('div', '', money(b.price)));
+      right.appendChild(el('div', '', money(cost(b, n))));
       var x = el('button');
       x.type = 'button';
       x.setAttribute('aria-label', 'Remove ' + b.title);
@@ -345,7 +356,8 @@ function startShop() {
       line.appendChild(left); line.appendChild(right);
       lines.appendChild(line);
     });
-    var sub = picked.reduce(function (s, b) { return s + b.price; }, 0);
+    var sub = picked.reduce(function (s, b) { return s + cost(b, n); }, 0);
+    $('nudge').hidden = n !== 1;
     $('count').textContent = picked.length;
     $('empty').hidden = picked.length > 0;
     $('summary').hidden = picked.length === 0;
@@ -353,7 +365,7 @@ function startShop() {
     $('shipping').textContent = money(SHIPPING);
     $('total').textContent = money(sub + SHIPPING);
     var body = ['Hi Meme Coin,', '', "I'd like to buy:"];
-    picked.forEach(function (b) { body.push('- ' + b.title + ' (' + KIND[b.kind] + ') ' + money(b.price)); });
+    picked.forEach(function (b) { body.push('- ' + b.title + ' (' + KIND[b.kind] + ') ' + money(cost(b, n))); });
     body.push('', 'Buttons: ' + money(sub), 'Shipping: ' + money(SHIPPING), 'Total: ' + money(sub + SHIPPING), '', 'My name:', 'My mailing address:', '');
     $('emailorder').href = 'mailto:' + EMAIL + '?subject=' + encodeURIComponent('Meme Coin order') + '&body=' + encodeURIComponent(body.join('\n'));
   }

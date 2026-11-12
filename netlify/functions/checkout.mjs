@@ -1,6 +1,6 @@
 // Meme Coin checkout.
 // The site sends the ids of the buttons in the buyer's stash. This function
-// looks up the real prices in buttons.json (so nobody can change a price from
+// looks up the buttons in buttons.json and works out the prices here (so nobody can change a price from
 // their browser), asks Square for one checkout page covering the whole order,
 // and sends back the link to that page.
 //
@@ -10,6 +10,11 @@
 // Optional: SQUARE_ENV = sandbox   to test with Square's fake-money sandbox.
 
 const SHIPPING_CENTS = 150;
+// Pricing: 1 button for $4, or $3 each when the order has 2 or more buttons
+// (2 for $6, 3 for $9, and so on). A double card counts as 2 buttons, a triple as 3.
+// Keep these the same as EACH and SOLO in site/index.html.
+const EACH_CENTS = 300;
+const SOLO_CENTS = 400;
 
 function json(status, body) {
   return new Response(JSON.stringify(body), {
@@ -54,6 +59,9 @@ export default async (req) => {
     picked.push(b);
   }
 
+  const count = picked.reduce((n, b) => n + b.pics.length, 0);
+  const cents = (b) => (count === 1 ? SOLO_CENTS : EACH_CENTS * b.pics.length);
+
   const base = process.env.SQUARE_ENV === 'sandbox'
     ? 'https://connect.squareupsandbox.com'
     : 'https://connect.squareup.com';
@@ -65,7 +73,7 @@ export default async (req) => {
       line_items: picked.map((b) => ({
         name: `${b.title} (button #${b.id})`,
         quantity: '1',
-        base_price_money: { amount: Math.round(b.price * 100), currency: 'USD' },
+        base_price_money: { amount: cents(b), currency: 'USD' },
       })),
     },
     checkout_options: {
