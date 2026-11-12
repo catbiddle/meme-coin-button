@@ -25,7 +25,6 @@
   {"id":24,"title":"Rock 'n' roll","kind":"poetry","price":3,"sold":false,"pics":[["rock.jpg","a page of text blacked out in stripes, leaving the words rock 'n' roll"]]},
   {"id":25,"title":"Surprise round: “One game of Scrabble?”","kind":"poetry","price":3,"sold":false,"pics":[["scrabble.jpg","a page of text blacked out in stripes, leaving the words surprise round, One game of Scrabble?"]]},
   {"id":26,"title":"Full time white lady","kind":"single","price":3,"sold":false,"pics":[["full-time.jpg","two women by rushing water, one with green hair, with the words full time white lady"]]},
-  {"id":27,"title":"Pussy power","kind":"poetry","price":3,"sold":false,"pics":[["power.jpg","a page of text blacked out in stripes, leaving the words pussy power"]]},
   {"id":28,"title":"Still bejeweled (one)","kind":"single","price":3,"sold":false,"pics":[["bejeweled.jpg","a pile of jewels and beads with the words Still bejeweled"]]},
   {"id":29,"title":"Ethically disappear","kind":"poetry","price":3,"sold":false,"pics":[["disappear.jpg","a page of text blacked out in stripes, leaving the words ethically disappear"]]},
   {"id":30,"title":"Cat lady","kind":"single","price":3,"sold":false,"pics":[["cat-lady.jpg","a painted red-haired woman with a fox, with the words Cat lady"]]},
