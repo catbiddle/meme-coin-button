@@ -1,4 +1,6 @@
 [
+  {"id":56,"title":"I wasn't always a boomer","kind":"single","price":3,"sold":false,"pics":[["boomer.jpg","a vintage photo of a laughing woman with the words I wasn't always a boomer"]]},
+  {"id":54,"title":"Bra-burning radical","kind":"poetry","price":3,"sold":false,"pics":[["bra-burning.jpg","a page of text blacked out in stripes, leaving the words bra-burning radical"]]},
   {"id":1,"title":"Forgettable white man","kind":"single","price":3,"sold":false,"pics":[["forgettable.jpg","a comic-book man with the words Forgettable white man over his face"]]},
   {"id":2,"title":"Villain era","kind":"single","price":3,"sold":false,"pics":[["villain.jpg","a pink felt bunny on a blue couch with the words Villain era"]]},
   {"id":3,"title":"Gurl. / Gurrrl.","kind":"double","price":6,"sold":false,"pics":[["gurl.jpg","a boy in a suit looking sideways, with the word Gurl."],["gurrrl.jpg","unimpressed spectators in a crowd, with the word Gurrrl."]]},
@@ -49,7 +51,5 @@
   {"id":51,"title":"Whimsigothic","kind":"single","price":3,"sold":false,"pics":[["whimsigothic.jpg","a wall of old framed portraits with the word Whimsigothic"]]},
   {"id":52,"title":"Nom. Nom. Nom.","kind":"triple","price":9,"sold":false,"pics":[["nom-noodles.jpg","noodles with the word Nom."],["nom-sprinkles.jpg","rainbow sprinkles with the word Nom."],["nom-burger.jpg","a close-up of a burger with the word Nom."]]},
   {"id":53,"title":"Stay weird","kind":"single","price":3,"sold":false,"pics":[["stay-weird.jpg","a cartoon of a hooded, bearded figure throwing up his hands, with the words stay weird"]]},
-  {"id":54,"title":"Bra-burning radical","kind":"poetry","price":3,"sold":false,"pics":[["bra-burning.jpg","a page of text blacked out in stripes, leaving the words bra-burning radical"]]},
-  {"id":55,"title":"Your average bro","kind":"poetry","price":3,"sold":false,"pics":[["average-bro.jpg","a page of text blacked out in stripes, leaving the words your average bro"]]},
-  {"id":56,"title":"I wasn't always a boomer","kind":"single","price":3,"sold":false,"pics":[["boomer.jpg","a vintage photo of a laughing woman with the words I wasn't always a boomer"]]}
+  {"id":55,"title":"Your average bro","kind":"poetry","price":3,"sold":false,"pics":[["average-bro.jpg","a page of text blacked out in stripes, leaving the words your average bro"]]}
 ]
