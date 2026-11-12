@@ -1,0 +1,8 @@
+{
+  "name": "meme-coin-button",
+  "private": true,
+  "description": "Meme Coin button shop. The only thing installed here is Netlify's small storage library, which remembers which buttons have sold.",
+  "dependencies": {
+    "@netlify/blobs": "^10.0.0"
+  }
+}

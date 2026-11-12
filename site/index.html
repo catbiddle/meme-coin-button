@@ -302,7 +302,9 @@ function startShop() {
 
   function renderGrid() {
     var grid = $('grid'); grid.textContent = '';
-    BUTTONS.filter(matches).forEach(function (b) {
+    /* Buttons still for sale come first; sold ones sink to the bottom. */
+    var shown = BUTTONS.filter(matches);
+    shown.filter(function (b) { return !b.sold; }).concat(shown.filter(function (b) { return b.sold; })).forEach(function (b) {
       var card = el('article', 'card');
       var pics = el('div', 'pics');
       b.pics.forEach(function (p, i) {
@@ -384,6 +386,7 @@ function startShop() {
         pay.disabled = false; pay.textContent = 'Check out';
         msg.textContent = (e && e.message ? e.message : 'Checkout is not working right now.') + ' You can email your order instead.';
         msg.hidden = false;
+        if (/already sold/.test(msg.textContent)) { setTimeout(function () { window.location.reload(); }, 4000); }
       });
   });
   if (/[?&]thanks=1/.test(window.location.search)) {
@@ -395,7 +398,19 @@ function startShop() {
 }
 fetch('buttons.json', { cache: 'no-store' })
   .then(function (r) { return r.json(); })
-  .then(function (list) { BUTTONS = list; startShop(); })
+  .then(function (list) {
+    BUTTONS = list;
+    /* Buttons sold through Square are remembered by the site itself. If that list
+       can't be reached, the shop still opens using buttons.json alone. */
+    return fetch('/.netlify/functions/sold', { cache: 'no-store' })
+      .then(function (r) { return r.ok ? r.json() : { sold: [] }; })
+      .catch(function () { return { sold: [] }; });
+  })
+  .then(function (extra) {
+    var ids = (extra && extra.sold) || [];
+    BUTTONS.forEach(function (b) { if (ids.indexOf(b.id) !== -1) { b.sold = true; } });
+    startShop();
+  })
   .catch(function () { document.getElementById('grid').textContent = 'The buttons could not be loaded. Please refresh the page.'; });
 </script>
 </body>
