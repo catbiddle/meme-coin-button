@@ -6,8 +6,7 @@
   {"id":5,"title":"Sweet as pie","kind":"double","price":6,"sold":false,"pics":[["sweet-as.jpg","red cherries with the words Sweet as"],["pie.jpg","a lattice-top pie with the word pie"]]},
   {"id":6,"title":"Life of a showgirl","kind":"single","price":3,"sold":false,"pics":[["showgirl.jpg","a smiling performer in sequins tipping a white hat, with the words Life of a showgirl"]]},
   {"id":7,"title":"Beheaded / Diva / Survived","kind":"triple","price":9,"sold":false,"pics":[["beheaded.jpg","singers on a purple-lit stage with the word Beheaded"],["diva.jpg","a singer on a purple-lit stage with the word Diva"],["survived.jpg","a singer on a purple-lit stage with the word Survived"]]},
-  {"id":8,"title":"Make stuff (one)","kind":"single","price":3,"sold":false,"pics":[["make-stuff-1.jpg","a wall of small framed pictures with the words Make stuff"]]},
-  {"id":9,"title":"Make stuff (two)","kind":"single","price":3,"sold":false,"pics":[["make-stuff-2.jpg","a wall of small framed pictures with the words Make stuff"]]},
+  {"id":8,"title":"Make stuff","kind":"single","price":3,"sold":false,"pics":[["make-stuff-1.jpg","a wall of small framed pictures with the words Make stuff"]]},
   {"id":10,"title":"Books are religion","kind":"poetry","price":3,"sold":true,"pics":[["books.jpg","a page of text blacked out in stripes, leaving the words books are religion"]]},
   {"id":11,"title":"A bit indomitable","kind":"poetry","price":3,"sold":false,"pics":[["indomitable.jpg","a page of text blacked out in stripes, leaving the words a bit indomitable"]]},
   {"id":12,"title":"Downeast weirdo","kind":"single","price":3,"sold":false,"pics":[["downeast.jpg","a fishing boat at a dock with the words Downeast Weirdo"]]},
@@ -25,7 +24,7 @@
   {"id":24,"title":"Rock 'n' roll","kind":"poetry","price":3,"sold":false,"pics":[["rock.jpg","a page of text blacked out in stripes, leaving the words rock 'n' roll"]]},
   {"id":25,"title":"Surprise round: “One game of Scrabble?”","kind":"poetry","price":3,"sold":false,"pics":[["scrabble.jpg","a page of text blacked out in stripes, leaving the words surprise round, One game of Scrabble?"]]},
   {"id":26,"title":"Full time white lady","kind":"single","price":3,"sold":false,"pics":[["full-time.jpg","two women by rushing water, one with green hair, with the words full time white lady"]]},
-  {"id":28,"title":"Still bejeweled (one)","kind":"single","price":3,"sold":false,"pics":[["bejeweled.jpg","a pile of jewels and beads with the words Still bejeweled"]]},
+  {"id":28,"title":"Still bejeweled","kind":"single","price":3,"sold":false,"pics":[["bejeweled.jpg","a pile of jewels and beads with the words Still bejeweled"]]},
   {"id":29,"title":"Ethically disappear","kind":"poetry","price":3,"sold":false,"pics":[["disappear.jpg","a page of text blacked out in stripes, leaving the words ethically disappear"]]},
   {"id":30,"title":"Cat lady","kind":"single","price":3,"sold":false,"pics":[["cat-lady.jpg","a painted red-haired woman with a fox, with the words Cat lady"]]},
   {"id":31,"title":"Stick together","kind":"single","price":3,"sold":false,"pics":[["stick-together.jpg","red and white birds flying across a blue sky, with the words stick together"]]},
@@ -34,7 +33,6 @@
   {"id":34,"title":"Goblin girl","kind":"single","price":3,"sold":false,"pics":[["goblin.jpg","wispy green plants on a dark background, with the words Goblin girl"]]},
   {"id":35,"title":"Fae creature (one)","kind":"single","price":3,"sold":false,"pics":[["fae-1.jpg","a person with wild blond hair, face covered by the words fae creature"]]},
   {"id":36,"title":"Grateful to my fans","kind":"poetry","price":3,"sold":false,"pics":[["fans.jpg","a page of text blacked out in stripes, leaving the words grateful to my fans"]]},
-  {"id":37,"title":"Still bejeweled (two)","kind":"single","price":3,"sold":false,"pics":[["bejeweled-2.jpg","a red and white beaded pattern with the words Still bejeweled"]]},
   {"id":38,"title":"Fae creature (two)","kind":"single","price":3,"sold":false,"pics":[["fae-2.jpg","purple and peach flowers with the words Fae creature"]]},
   {"id":39,"title":"Devils and angels","kind":"double","price":6,"sold":false,"pics":[["devils.jpg","a pink and blue cloud button with a phrase about devils"],["angels.jpg","a pink and blue cloud button with a phrase about angels"]]}
 ]
