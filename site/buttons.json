@@ -1,10 +1,10 @@
 [
-  {"id":56,"title":"I wasn't always a boomer","kind":"single","price":3,"sold":false,"pics":[["boomer.jpg","a vintage photo of a laughing woman with the words I wasn't always a boomer"]]},
+  {"id":56,"title":"I wasn't always a boomer","kind":"single","price":3,"sold":true,"pics":[["boomer.jpg","a vintage photo of a laughing woman with the words I wasn't always a boomer"]]},
   {"id":54,"title":"Bra-burning radical","kind":"poetry","price":3,"sold":false,"pics":[["bra-burning.jpg","a page of text blacked out in stripes, leaving the words bra-burning radical"]]},
-  {"id":1,"title":"Forgettable white man","kind":"single","price":3,"sold":false,"pics":[["forgettable.jpg","a comic-book man with the words Forgettable white man over his face"]]},
+  {"id":1,"title":"Forgettable white man","kind":"single","price":3,"sold":true,"pics":[["forgettable.jpg","a comic-book man with the words Forgettable white man over his face"]]},
   {"id":2,"title":"Villain era","kind":"single","price":3,"sold":false,"pics":[["villain.jpg","a pink felt bunny on a blue couch with the words Villain era"]]},
   {"id":3,"title":"Gurl. / Gurrrl.","kind":"double","price":6,"sold":false,"pics":[["gurl.jpg","a boy in a suit looking sideways, with the word Gurl."],["gurrrl.jpg","unimpressed spectators in a crowd, with the word Gurrrl."]]},
-  {"id":4,"title":"Don't be a chicken","kind":"single","price":3,"sold":false,"pics":[["chicken.jpg","a crowd of chickens with the words Don't be a chicken"]]},
+  {"id":4,"title":"Don't be a chicken","kind":"single","price":3,"sold":true,"pics":[["chicken.jpg","a crowd of chickens with the words Don't be a chicken"]]},
   {"id":5,"title":"Sweet as pie","kind":"double","price":6,"sold":false,"pics":[["sweet-as.jpg","red cherries with the words Sweet as"],["pie.jpg","a lattice-top pie with the word pie"]]},
   {"id":7,"title":"Beheaded / Diva / Survived","kind":"triple","price":9,"sold":false,"pics":[["beheaded.jpg","singers on a purple-lit stage with the word Beheaded"],["diva.jpg","a singer on a purple-lit stage with the word Diva"],["survived.jpg","a singer on a purple-lit stage with the word Survived"]]},
   {"id":8,"title":"Make stuff","kind":"single","price":3,"sold":false,"pics":[["make-stuff-1.jpg","a wall of small framed pictures with the words Make stuff"]]},
